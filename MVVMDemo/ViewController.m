@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MyViewController.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTitle:@"跳转" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    btn.frame = CGRectMake(50, 150, 200, 50);
+    [self.view addSubview:btn];
+    [btn addTarget:self action:@selector(clickedSkipBtn) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)clickedSkipBtn{
+    MyViewController *vc = [[MyViewController alloc]init];;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
